@@ -1,0 +1,43 @@
+<h3>Остаток: <%= Fuel.sum(:in)-Fuel.sum(:out)%>л</h3>
+<br>
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+<table class="table table-striped" width="647">
+  <thead>
+  <tr>
+    <th style="width:10%">Дата</th>
+    <th style="width:10%">Вход</th>
+    <th style="width:10%">Выход</th>
+    <th style="width:40%">Примечания</th>
+    <th style="width:20%">Цена</th>
+    <th style="width:10%"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @fuels.each do |fuel| %>
+  <tr>
+    <td><%=fuel.date %></td>
+    <td><%=fuel.in %>л</td>
+    <td><%=fuel.out %>л</td>
+    <td><%=fuel.notes %></td>
+    <td><%=fuel.price %></td>
+    <td> <%= button_to "Удалить", fuel_path(fuel), :method => "delete", class: "btn btn-danger" %></td>
+  </tr>
+<% end %>
+  <tr>
+    <%=form_for @fuel do |f| %>
+    <td><%= f.date_field :date, class: "form-control",value: Date.today.to_s %></td>
+    <td><%= f.number_field :in, class: 'form-control' %></td>
+    <td><%= f.number_field :out, class: 'form-control' %></td>
+    <td><%= f.text_field :notes, class: 'form-control', placeholder: "Какие то заметки" %></td>
+    <td><%= f.number_field :price, class: 'form-control', value:0 %></td>
+      <td><%= f.submit "Сохранить", class:'btn btn-success' %></td>
+      <% end %>
+  </tr>
+  </tbody>
+</table>
