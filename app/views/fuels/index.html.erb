@@ -32,8 +32,8 @@
   <tr>
     <%=form_for @fuel do |f| %>
     <td><%= f.date_field :date, class: "form-control",value: Date.today.to_s %></td>
-    <td><%= f.number_field :in, class: 'form-control' %></td>
-    <td><%= f.number_field :out, class: 'form-control' %></td>
+    <td><%= f.number_field :in, class: 'form-control', value:0  %></td>
+    <td><%= f.number_field :out, class: 'form-control', value:0  %></td>
     <td><%= f.text_field :notes, class: 'form-control', placeholder: "Какие то заметки" %></td>
     <td><%= f.number_field :price, class: 'form-control', value:0 %></td>
       <td><%= f.submit "Сохранить", class:'btn btn-success' %></td>
