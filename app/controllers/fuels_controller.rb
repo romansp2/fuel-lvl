@@ -1,5 +1,4 @@
 class FuelsController < ApplicationController
-  before_action :set_fuel, only: [:edit, :update, :destroy]
 
   def index
     @fuels = Fuel.all
@@ -11,10 +10,10 @@ class FuelsController < ApplicationController
     @fuel = Fuel.new(fuel_params)
     if @fuel.save
       flash[:notice] = "Запись добавлена"
-          redirect_to root_path
+          redirect_to fuels_index_path
     else
       flash[:alert] = @fuel.errors.full_messages
-      redirect_to root_path
+      redirect_to fuels_index_path
     end
   end
 
@@ -22,7 +21,7 @@ class FuelsController < ApplicationController
     set_fuel
     @fuel.destroy
     flash[:notice] = "Запись удалена"
-    redirect_to root_path
+    redirect_to fuels_index_path
   end
 
   private

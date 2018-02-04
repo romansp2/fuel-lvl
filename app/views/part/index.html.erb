@@ -1,2 +1,39 @@
-<h1>Part#index</h1>
-<p>Find me in app/views/part/index.html.erb</p>
+
+<br>
+<% if flash[:notice] %>
+  <div class="alert alert-success"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="alert alert-danger"><%= flash[:alert] %></div>
+<% end %>
+<table class="table table-striped" width="647">
+  <thead>
+  <tr>
+    <th style="width:30%">Деталь</th>
+    <th style="width:10%">Количество</th>
+    <th style="width:40%">Примечания</th>
+    <th style="width:10%"></th>
+    <th style="width:10%"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @parts.each do |part| %>
+    <tr>
+      <td><%=part.name %></td>
+      <td><%=part.amount %>л</td>
+      <td><%=part.notes %></td>
+      <td> <%= button_to "Удалить", part_path(part), :method => "delete", class: "btn btn-danger" %></td>
+      <td> <%= button_to "Удалить", part_path(part), :method => "delete", class: "btn btn-danger" %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <%=form_for @part do |f| %>
+      <td><%= f.text_field :notes, class: 'form-control', placeholder: "Название детали" %></td>
+      <td><%= f.number_field :amount, class: 'form-control', value:0  %></td>
+      <td><%= f.text_field :notes, class: 'form-control', placeholder: "Какие то заметки" %></td>
+      <td><%= f.submit "Сохранить", class:'btn btn-success' %></td>
+    <% end %>
+  </tr>
+  </tbody>
+</table>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="fuel@localhost">
+<dataSource name="fuel@localhost [2]">
   <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.7">
     <root id="1"/>
     <database id="2" parent="1" name="fuel">
@@ -31,8 +31,8 @@
     </role>
     <schema id="7" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-02-01.08:43:05.440</IntrospectionTimestamp>
-      <IntrospectionStateNumber>842</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-02-04.13:39:08.203</IntrospectionTimestamp>
+      <IntrospectionStateNumber>858</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -58,53 +58,64 @@
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <table id="14" parent="7" name="ar_internal_metadata">
+    <sequence id="14" parent="7" name="parts_id_seq">
+      <ObjectId>24651</ObjectId>
+      <StateNumber>858</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <table id="15" parent="7" name="ar_internal_metadata">
       <ObjectId>24594</ObjectId>
       <StateNumber>841</StateNumber>
     </table>
-    <table id="15" parent="7" name="fuels">
+    <table id="16" parent="7" name="fuels">
       <ObjectId>24604</ObjectId>
       <StateNumber>842</StateNumber>
     </table>
-    <table id="16" parent="7" name="schema_migrations">
+    <table id="17" parent="7" name="parts">
+      <ObjectId>24653</ObjectId>
+      <StateNumber>858</StateNumber>
+    </table>
+    <table id="18" parent="7" name="schema_migrations">
       <ObjectId>24586</ObjectId>
       <StateNumber>840</StateNumber>
     </table>
-    <column id="17" parent="14" name="key">
+    <column id="19" parent="15" name="key">
       <Position>1</Position>
       <DataType>varchar|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>841</StateNumber>
     </column>
-    <column id="18" parent="14" name="value">
+    <column id="20" parent="15" name="value">
       <Position>2</Position>
       <DataType>varchar|0</DataType>
       <StateNumber>841</StateNumber>
     </column>
-    <column id="19" parent="14" name="created_at">
+    <column id="21" parent="15" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>841</StateNumber>
     </column>
-    <column id="20" parent="14" name="updated_at">
+    <column id="22" parent="15" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>841</StateNumber>
     </column>
-    <index id="21" parent="14" name="ar_internal_metadata_pkey">
+    <index id="23" parent="15" name="ar_internal_metadata_pkey">
       <ObjectId>24600</ObjectId>
       <ColNames>key</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="22" parent="14" name="ar_internal_metadata_pkey">
+    <key id="24" parent="15" name="ar_internal_metadata_pkey">
       <ObjectId>24601</ObjectId>
       <ColNames>key</ColNames>
       <UnderlyingIndexName>ar_internal_metadata_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="23" parent="15" name="id">
+    <column id="25" parent="16" name="id">
       <Position>1</Position>
       <DataType>bigint|0</DataType>
       <NotNull>1</NotNull>
@@ -112,66 +123,112 @@
       <DefaultExpression>nextval(&apos;fuels_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>fuels_id_seq</SequenceName>
     </column>
-    <column id="24" parent="15" name="date">
+    <column id="26" parent="16" name="date">
       <Position>2</Position>
       <DataType>varchar|0</DataType>
       <StateNumber>842</StateNumber>
     </column>
-    <column id="25" parent="15" name="in">
+    <column id="27" parent="16" name="in">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>842</StateNumber>
     </column>
-    <column id="26" parent="15" name="out">
+    <column id="28" parent="16" name="out">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <StateNumber>842</StateNumber>
     </column>
-    <column id="27" parent="15" name="notes">
+    <column id="29" parent="16" name="notes">
       <Position>5</Position>
       <DataType>varchar|0</DataType>
       <StateNumber>842</StateNumber>
     </column>
-    <column id="28" parent="15" name="price">
+    <column id="30" parent="16" name="price">
       <Position>6</Position>
       <DataType>double precision|0</DataType>
       <StateNumber>842</StateNumber>
     </column>
-    <column id="29" parent="15" name="created_at">
+    <column id="31" parent="16" name="created_at">
       <Position>7</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>842</StateNumber>
     </column>
-    <column id="30" parent="15" name="updated_at">
+    <column id="32" parent="16" name="updated_at">
       <Position>8</Position>
       <DataType>timestamp|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>842</StateNumber>
     </column>
-    <index id="31" parent="15" name="fuels_pkey">
+    <index id="33" parent="16" name="fuels_pkey">
       <ObjectId>24611</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="32" parent="15" name="fuels_pkey">
+    <key id="34" parent="16" name="fuels_pkey">
       <ObjectId>24612</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>fuels_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="33" parent="16" name="version">
+    <column id="35" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>858</StateNumber>
+      <DefaultExpression>nextval(&apos;parts_id_seq&apos;::regclass)</DefaultExpression>
+      <SequenceName>parts_id_seq</SequenceName>
+    </column>
+    <column id="36" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>858</StateNumber>
+    </column>
+    <column id="37" parent="17" name="amount">
+      <Position>3</Position>
+      <DataType>double precision|0</DataType>
+      <StateNumber>858</StateNumber>
+    </column>
+    <column id="38" parent="17" name="notes">
+      <Position>4</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>858</StateNumber>
+    </column>
+    <column id="39" parent="17" name="created_at">
+      <Position>5</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>858</StateNumber>
+    </column>
+    <column id="40" parent="17" name="updated_at">
+      <Position>6</Position>
+      <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>858</StateNumber>
+    </column>
+    <index id="41" parent="17" name="parts_pkey">
+      <ObjectId>24660</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="42" parent="17" name="parts_pkey">
+      <ObjectId>24661</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>parts_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="43" parent="18" name="version">
       <Position>1</Position>
       <DataType>varchar|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>840</StateNumber>
     </column>
-    <index id="34" parent="16" name="schema_migrations_pkey">
+    <index id="44" parent="18" name="schema_migrations_pkey">
       <ObjectId>24592</ObjectId>
       <ColNames>version</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="35" parent="16" name="schema_migrations_pkey">
+    <key id="45" parent="18" name="schema_migrations_pkey">
       <ObjectId>24593</ObjectId>
       <ColNames>version</ColNames>
       <UnderlyingIndexName>schema_migrations_pkey</UnderlyingIndexName>

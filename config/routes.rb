@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get 'part/destroy'
 
   resources :fuels
-  root 'fuels#index'
+  resources :part
+  root 'home#index'
   get 'fuels/index'
 
   get 'fuels/new'
