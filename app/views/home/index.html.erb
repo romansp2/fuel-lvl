@@ -1,4 +1,9 @@
-<h1>Home#index</h1>
+<div class="container_home">
 
-<%= link_to 'Топливо', fuels_index_path %>
-<%= link_to 'Запчасти', parts_index_path %>
+<div class="photo1">
+<%= link_to image_tag("fuel.png", :border => 0, :alt => '', :title => ''), fuels_index_path, :class => 'dock-item' %>
+
+    <%= link_to image_tag("parts.png", :border => 0, :alt => '',  :title => '', :width => 150), parts_index_path, :class => 'dock-item' %>
+  </div>
+
+</div>

@@ -21,7 +21,7 @@
   <% @parts.each do |part| %>
     <tr>
       <td><%=part.name %></td>
-      <td><%=part.amount %>л</td>
+      <td><%=part.amount %></td>
       <td><%=part.notes %></td>
       <td> <%= button_to "Удалить", part_path(part), :method => "delete", class: "btn btn-danger" %></td>
       <td> <%= button_to "Удалить", part_path(part), :method => "delete", class: "btn btn-danger" %></td>
@@ -29,10 +29,11 @@
   <% end %>
   <tr>
     <%=form_for @part do |f| %>
-      <td><%= f.text_field :notes, class: 'form-control', placeholder: "Название детали" %></td>
-      <td><%= f.number_field :amount, class: 'form-control', value:0  %></td>
-      <td><%= f.text_field :notes, class: 'form-control', placeholder: "Какие то заметки" %></td>
+      <td><%= f.text_field :name, class: 'form-control', value: @part.name %></td>
+      <td><%= f.number_field :amount, class: 'form-control', value: @part.amount  %></td>
+      <td><%= f.text_field :notes, class: 'form-control', value: @part.notes %></td>
       <td><%= f.submit "Сохранить", class:'btn btn-success' %></td>
+
     <% end %>
   </tr>
   </tbody>
