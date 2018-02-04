@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
 
 
+  get 'part/index'
+
+  get 'part/new'
+
+  get 'part/create'
+
+  get 'part/edit'
+
+  get 'part/update'
+
+  get 'part/destroy'
+
   resources :fuels
   root 'fuels#index'
   get 'fuels/index'
